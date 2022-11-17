@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <h1 class="mb-3">Farms</h1>
+    <table class="table" ng *ngIf="farms && farms.length>0">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>dead_pets_count</th>
+                <th>alive_pets_count</th>
+                <th>average_feeding_period</th>
+                <th>average_thirst_quenching</th>
+                <th>average_pet_happiness</th>
+                <th>average_pets_age</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let farm of farms ">
+                <td>{{farm.id}}</td>
+                <td>{{farm.name}}</td>
+                <td>{{farm.dead_pets_count}}</td>
+                <td>{{farm.alive_pets_count}}</td>
+                <td>{{farm.average_feeding_period}}</td>
+                <td>{{farm.average_thirst_quenching}}</td>
+                <td>{{farm.average_pet_happiness}}</td>
+                <td>{{farm.average_pets_age}}</td>
+                <td><a [routerLink]="[farm.id]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!farms || farms.length<=0">No Farms found</p>
+</div>
+<button type="button ml-1" class="btn btn-primary btn-lg" routerLink="/AddFarmToUser">Add Farm</button>

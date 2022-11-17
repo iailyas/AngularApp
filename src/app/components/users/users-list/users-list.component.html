@@ -1,0 +1,28 @@
+<div class="container my-5">
+    <h1 class="mb-3">User</h1>
+    <table class="table" ng *ngIf="Users && Users.length>0">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>First_Name</td>
+                <td>Last_Name</td>
+                <td>Role</td>
+                <td>Email</td>
+                <td>Avatar</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let User of Users ">
+                <td>{{User.id}}</td>
+                <td>{{User.first_Name}}</td>
+                <td>{{User.last_Name}}</td>
+                <td>{{User.role}}</td>
+                <td>{{User.email}}</td>
+                <td>{{User.avatar}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!Users || Users.length<=0">No Farms found</p>
+</div>
+
+<button type="button" class="btn btn-primary btn-lg" routerLink="Farm/AddFarmToUser">Add User</button>
