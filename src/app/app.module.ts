@@ -9,6 +9,9 @@ import { AddFarmComponent } from './components/farms-add/add-farm/add-farm.compo
 import { FarmsListComponent } from './components/farms-list/farms-list.component';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { EditFarmComponent } from './components/edit-farm/edit-farm/edit-farm.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { RegistratonComponent } from './components/registration/registraton/registraton.component';
+import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,17 @@ import { EditFarmComponent } from './components/edit-farm/edit-farm/edit-farm.co
     FarmsListComponent,
     AddFarmComponent,
     UsersListComponent,
-    EditFarmComponent
+    EditFarmComponent,
+    AuthComponent,
+    RegistratonComponent,
+    UploadfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

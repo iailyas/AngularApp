@@ -1,0 +1,26 @@
+<div class="position-absolute top-50 start-50 translate-middle">
+<form class="row row-cols-lg-auto g-3 align-items-center">
+    <div class="col-12">
+      <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername"  [(ngModel)]="userLogin.userName" [ngModelOptions]="{standalone: true}" placeholder="Username">
+      </div>
+    </div>
+  
+    <div class="col-12">
+        <div class="input-group">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername" [(ngModel)]="userLogin.password" [ngModelOptions]="{standalone: true}" placeholder="Password">
+          </div>
+      <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+    </div>
+  
+    
+  
+    <div class="col-12">
+      <button type="sign in" class="btn btn-primary" (click)="Login()" >sign in</button>
+    </div>
+    <div class="col-12">
+      <button type="sign up" class="btn btn-primary" (click)="Register()" >sign up</button>
+    </div>
+  </form>
+</div>

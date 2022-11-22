@@ -11,8 +11,8 @@ export class UsersService {
   baseApiUrl: string = environment.baseApiUrl;
   constructor(private http: HttpClient) { }
 
-  GetAll() : Observable<User[]> {
+  GetAll(): Observable<User[]> {
     return this.http.get<User[]>(this.baseApiUrl + '/User')
   }
-  
+
 }

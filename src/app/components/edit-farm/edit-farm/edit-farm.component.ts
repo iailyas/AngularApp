@@ -38,5 +38,14 @@ export class EditFarmComponent implements OnInit {
     });
     console.log(this.farmDetail);
   }
+  deleteFarm(id: string) {
+
+    this.farmService.Delete(Number(this.farmDetail.id)).subscribe(
+      {
+        next: (params) => { this.router.navigate(['Farm']) },
+        error: (response: any) => { console.log(response); }
+      }
+    )
+  }
 }
 

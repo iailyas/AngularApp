@@ -5,6 +5,8 @@
           <label for="Name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name"  name="name" [(ngModel)]="farmDetail.name">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary mr-5">Submit</button>
+        <button type="button" class="btn btn-danger" (click)="deleteFarm(farmDetail.id)">Delete</button>
+        
       </form>
 </div>

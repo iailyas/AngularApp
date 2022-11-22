@@ -24,4 +24,8 @@ export class FarmService {
     return this.http.put<Farm>(this.baseApiUrl + '/Farm/?id=' + farmId, updateFarmRequest);
 
   }
+  Delete(farmId: number): Observable<Farm> {
+    return this.http.delete<Farm>(this.baseApiUrl + '/Farm/' + farmId);
+
+  }
 }
