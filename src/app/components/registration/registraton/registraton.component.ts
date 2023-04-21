@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRegister } from 'src/app/models/userRegister';
+import { CurrentUserRegister } from 'src/app/models/currentUserRegister';
 import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
@@ -16,11 +17,18 @@ export class RegistratonComponent implements OnInit {
     first_Name: '',
     last_Name: '',
     role: '',
-    // userName: '',
-    // password: '',
+    userName: '',
+    password: '',
     email: ''
 
   };
+  currentUser: CurrentUserRegister = {
+    userName: this.user.userName,
+    password: this.user.password,
+    email: this.user.email
+
+  };
+
   image?: File;
   imagePreview: any = '';
 
@@ -71,8 +79,8 @@ export class RegistratonComponent implements OnInit {
       first_Name: '',
       last_Name: '',
       role: '',
-      // userName: '',
-      // password: '',
+      userName: '',
+      password: '',
       email: ''
     })
   }

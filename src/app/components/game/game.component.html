@@ -1,0 +1,22 @@
+
+
+<div class="game-screen">
+
+    <div class="tamagotchi">
+        <div class="hp">
+            <p>Sleep: <span id="sleep-hp">{{this.Tamagochis.Sleep}}</span>% </p>
+            <p>Hunger: <span id="hunger-hp">{{this.Tamagochis.Hunger}}</span>% </p>
+            <p>Play: <span id="play-hp">{{this.Tamagochis.Play}}</span>% </p><br>
+            <p id="score-bar">Score: <span id="score">{{this.Tamagochis.Score}}</span></p>
+        </div>
+
+        <p><span id="name"></span></p>
+          <p id="t-body"><span id="effect-left"></span><span id="hand-left"></span><span id="eye-left"></span><span id="mouth">{{this.Tamagochis.Look}}</span><span id="eye-right"></span><span id="hand-right"></span><span id="effect-right"></span></p>
+
+          <div class="buttons">
+            <a  id="action-sleep" (click)="ClickSleep()">Sleep</a>
+            <a  id="action-feed" (click)="ClickFeed()">Feed</a>
+            <a  id="action-play" (click)="ClickPlay()">Play</a>
+        </div>
+    </div>
+</div>

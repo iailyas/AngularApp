@@ -10,12 +10,12 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UsersListComponent implements OnInit {
   Users: User[] = [{
-    id: 5,
-    first_Name: '111',
-    last_Name: '111',
-    role: '111',
-    email: '111',
-    avatar: '111'
+    id: 0,
+    first_Name: '',
+    last_Name: '',
+    role: '',
+    email: '',
+    avatar: ''
   }];
   constructor(private usersService: UsersService) { }
 

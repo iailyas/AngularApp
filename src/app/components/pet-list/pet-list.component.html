@@ -1,0 +1,31 @@
+<div class="container my-5">
+    <h1 class="mb-3">Pets</h1>
+    <table class="table" ng *ngIf="pets && pets.length>0">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>happiness_days_count</th>
+                <th>feeding_period</th>
+                <th>thist_quenching</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pet of pets ">
+                <td>{{pet.id}}</td>
+                <td>{{pet.name}}</td>
+                <td>{{pet.type}}</td>
+                <td>{{pet.happiness_days_count}}</td>
+                <td>{{pet.feeding_period}}</td>
+                <td>{{pet.thist_quenching}}</td>
+                <td><a [routerLink]="[pet.id]">Edit</a></td>
+               
+            </tr>
+            
+        </tbody>
+    </table>
+    <p *ngIf="!pets || pets.length<=0">No Pets found</p>
+</div>
+<button type="button ml-1" class="btn btn-primary btn-lg" routerLink="/AddPetToFarm">Add Pet</button>
+

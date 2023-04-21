@@ -18,8 +18,10 @@
                 <td>{{User.last_Name}}</td>
                 <td>{{User.role}}</td>
                 <td>{{User.email}}</td>
-                <td>{{User.avatar}}</td>
+                <!-- <td>{{User.avatar}}</td> -->                
+                <img src="\assets\images\{{User.avatar}}" width="100" height="100"/>
             </tr>
+            
         </tbody>
     </table>
     <p *ngIf="!Users || Users.length<=0">No Farms found</p>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +12,13 @@ import { EditFarmComponent } from './components/edit-farm/edit-farm/edit-farm.co
 import { AuthComponent } from './components/auth/auth.component';
 import { RegistratonComponent } from './components/registration/registraton/registraton.component';
 import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
+import { PetListComponent } from './components/pet-list/pet-list.component';
+import { AddPetComponent } from './components/add-pet/add-pet.component';
+import { EditPetComponent } from './components/edit-pet/edit-pet.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { GameComponent } from './components/game/game.component';
+import { DeathComponent } from './components/death/death.component';
+import { HeadersInterceptor } from './headers.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,16 +29,29 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
     EditFarmComponent,
     AuthComponent,
     RegistratonComponent,
-    UploadfileComponent
+    UploadfileComponent,
+    PetListComponent,
+    AddPetComponent,
+    EditPetComponent,
+    ProfileComponent,
+    GameComponent,
+    DeathComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

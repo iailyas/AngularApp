@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { CurrentUserRegister } from '../models/currentUserRegister';
 import { UserRegister } from '../models/userRegister';
 
 @Injectable({
@@ -9,17 +10,26 @@ import { UserRegister } from '../models/userRegister';
 })
 export class RegistrationService {
   baseApiUrl: string = environment.baseApiUrl;
+  currentUser: CurrentUserRegister = {
+    userName: '',
+    password: '',
+    email: ''
+  };
   constructor(private http: HttpClient) { }
   Add(user: UserRegister, image?: File): Observable<any> {
+    this.currentUser.email = user.email;
+    this.currentUser.password = user.password;
+    this.currentUser.userName = user.userName;
     const fd = new FormData();
     if (image) {
       fd.append('avatar', image, image.name);
     }
     fd.append('first_Name', user.first_Name);
     fd.append('last_Name', user.last_Name);
-    // fd.append('userName', user.userName);
-    // fd.append('password', user.password);
+    fd.append('userName', user.userName);
+    fd.append('password', user.password);
     fd.append('email', user.email);
-    return this.http.post<any>(this.baseApiUrl + '/User', fd);
+
+    return this.http.post<any>(this.baseApiUrl + '/User', fd), this.http.post<any>(this.baseApiUrl + '/register', this.currentUser);
   }
 }

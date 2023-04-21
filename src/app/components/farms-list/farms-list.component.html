@@ -17,14 +17,14 @@
         <tbody>
             <tr *ngFor="let farm of farms ">
                 <td>{{farm.id}}</td>
-                <td>{{farm.name}}</td>
+                <td><a [routerLink]="['/Pet']">Pets</a><br>{{farm.name}}</td>
                 <td>{{farm.dead_pets_count}}</td>
                 <td>{{farm.alive_pets_count}}</td>
                 <td>{{farm.average_feeding_period}}</td>
                 <td>{{farm.average_thirst_quenching}}</td>
                 <td>{{farm.average_pet_happiness}}</td>
                 <td>{{farm.average_pets_age}}</td>
-                <td><a [routerLink]="[farm.id]">View</a></td>
+                <td><a [routerLink]="[farm.id]">Edit</a></td>
             </tr>
         </tbody>
     </table>

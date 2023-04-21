@@ -1,0 +1,14 @@
+<div class="container my-5">
+    <h1 class="mb-3">Add new Farm</h1>
+    <form #form="ngForm" (ngSubmit)="AddPet()">
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name"  name="name" [(ngModel)]="addPetRequest.name">
+        </div>
+        <div class="mb-3">
+            <label for="Type" class="form-label">Type</label>
+            <input type="text" class="form-control" id="type"  name="type" [(ngModel)]="addPetRequest.type">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
