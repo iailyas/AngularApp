@@ -11,8 +11,11 @@ export class FarmService {
   baseApiUrl: string = environment.baseApiUrl;
   constructor(private http: HttpClient) { }
 
-  GetAll(): Observable<Farm[]> {
-    return this.http.get<Farm[]>(this.baseApiUrl + '/Farm');
+  GetCurrentUser(): Observable<String> {
+    return this.http.get<String>(this.baseApiUrl);
+  }
+  GetAll(username: Observable<String>): Observable<Farm[]> {
+    return this.http.get<Farm[]>(this.baseApiUrl + '/Farm/CurrentUserFarms?name=' + username);
   }
   Add(userId: number, addFarmRequest: Farm): Observable<Farm> {
     return this.http.post<Farm>(this.baseApiUrl + '/AddFarmToUser?id=' + userId, addFarmRequest);

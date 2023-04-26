@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pet } from 'src/app/models/pet.model';
 import { PetsService } from 'src/app/services/pets.service';
 
@@ -9,7 +9,7 @@ import { PetsService } from 'src/app/services/pets.service';
   styleUrls: ['./add-pet.component.css']
 })
 export class AddPetComponent implements OnInit {
-  farmId: number = 1;
+  farmId: number | undefined;
   addPetRequest: Pet = {
     id: '',
     name: '',
@@ -18,18 +18,31 @@ export class AddPetComponent implements OnInit {
     feeding_period: 0,
     thist_quenching: 0
   };
-  constructor(private petsService: PetsService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private petsService: PetsService, private router: Router) { }
 
   ngOnInit(): void {
+
   }
   AddPet() {
-    this.petsService.Add(this.farmId, this.addPetRequest)
-      .subscribe({
+    this.route.paramMap.subscribe({
+      next: (params) => {
+        const id = params.get('id');
+        this.farmId = Number(id);
+        this.petsService.Add(Number(id), this.addPetRequest)
 
-        next: (response: any) => { this.router.navigate(['Farm']); },
-        error: (response: any) => { console.log(response); }
+          .subscribe({
 
-      });
+            next: (response: any) => { this.petsService.Add(Number(id), this.addPetRequest); this.router.navigate(['Farm']); },
+            error: (response: any) => { console.log(response); }
+
+          });
+
+
+
+      },
+      error: (response: any) => { console.log(response); }
+    });
+
+
   }
-
 }

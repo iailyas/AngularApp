@@ -17,7 +17,7 @@
         <tbody>
             <tr *ngFor="let farm of farms ">
                 <td>{{farm.id}}</td>
-                <td><a [routerLink]="['/Pet']">Pets</a><br>{{farm.name}}</td>
+                <td><a [routerLink]="['PetByFarmIdFarmId/'+farm.id]">Pets</a><br>{{farm.name}}</td>
                 <td>{{farm.dead_pets_count}}</td>
                 <td>{{farm.alive_pets_count}}</td>
                 <td>{{farm.average_feeding_period}}</td>

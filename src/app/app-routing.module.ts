@@ -48,11 +48,11 @@ const routes: Routes = [
     component: UploadfileComponent
   },
   {
-    path: 'Pet',
+    path: 'Farm/PetByFarmIdFarmId/:id',
     component: PetListComponent
   },
   {
-    path: 'AddPetToFarm',
+    path: 'AddPetToFarm/:id',
     component: AddPetComponent
   },
   {

@@ -13,7 +13,7 @@ export class FarmsListComponent implements OnInit {
   constructor(private farmService: FarmService) { }
 
   ngOnInit(): void {
-    this.farmService.GetAll()
+    this.farmService.GetAll(this.farmService.GetCurrentUser())
       .subscribe({
         next: (farm) => { this.farms = farm; console.log(this.farms); },
         error: (response: any) => { console.log(response); }

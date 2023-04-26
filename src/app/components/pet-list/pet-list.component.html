@@ -27,5 +27,6 @@
     </table>
     <p *ngIf="!pets || pets.length<=0">No Pets found</p>
 </div>
-<button type="button ml-1" class="btn btn-primary btn-lg" routerLink="/AddPetToFarm">Add Pet</button>
+<!-- onclick="AddPet()" routerLink="/Farm/PetByFarmIdFarmId/2/AddPetToFarm/2" -->
+<button type="button ml-1" class="btn btn-primary btn-lg" (click)="AddPet()">Add Pet</button>
 
