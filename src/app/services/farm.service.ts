@@ -9,12 +9,15 @@ import { Farm } from '../models/farm.model';
 })
 export class FarmService {
   baseApiUrl: string = environment.baseApiUrl;
+
   constructor(private http: HttpClient) { }
 
-  GetCurrentUser(): Observable<String> {
-    return this.http.get<String>(this.baseApiUrl);
+  GetCurrentUser(): Observable<string> {
+    return this.http.get(this.baseApiUrl + '/Authenticate/CurrentUser', { responseType: 'text' });
   }
-  GetAll(username: Observable<String>): Observable<Farm[]> {
+  GetAll(username: string): Observable<Farm[]> {
+    console.log('ADDA');
+    console.log(username);
     return this.http.get<Farm[]>(this.baseApiUrl + '/Farm/CurrentUserFarms?name=' + username);
   }
   Add(userId: number, addFarmRequest: Farm): Observable<Farm> {

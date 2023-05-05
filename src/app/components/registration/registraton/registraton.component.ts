@@ -62,6 +62,12 @@ export class RegistratonComponent implements OnInit {
     // if (this.registrationForm.valid) {
     //   return;
     // }
+    // this.registrationService.Add(this.registrationForm.getRawValue())
+    //   .subscribe({
+    //     next: (user) => { console.log(user); },
+    //     error: (response: any) => { console.log(response); }
+    //   });
+
     console.log('AAAAAAAAAAAA');
     this.registrationService.Add(this.registrationForm.getRawValue(), this.image)
       .subscribe({
