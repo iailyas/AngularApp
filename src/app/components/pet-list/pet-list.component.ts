@@ -23,11 +23,11 @@ export class PetListComponent implements OnInit {
       }
     });
 
-    this.petsService.GetAll()
-      .subscribe({
-        next: (pet) => { this.pets = pet; console.log(this.pets); },
-        error: (response: any) => { console.log(response); }
-      })
+    // this.petsService.GetAll()
+    //   .subscribe({
+    //     next: (pet) => { this.pets = pet; console.log(this.pets); },
+    //     error: (response: any) => { console.log(response); }
+    //   })
 
   }
   AddPet() {

@@ -15,17 +15,22 @@ export class FarmsListComponent implements OnInit {
   constructor(private farmService: FarmService) { }
   ngOnInit(): void {
     // this.farmService.GetCurrentUser()
-    this.farmService.GetCurrentUser()
-      .subscribe({
-        next: (user: string) => {
-          this.userName = user; console.log(this.userName); this.farmService.GetAll(this.userName)
-            .subscribe({
-              next: (farm) => { console.log(this.userName), this.farms = farm; console.log(this.farms); },
-              error: (response: any) => { console.log(response); }
-            })
-        },
-        error: (response: any) => { console.log(response); }
-      })
+    // this.farmService.GetCurrentUser()
+    //   .subscribe({
+    //     next: (user: string) => {
+    //       this.userName = user; console.log(this.userName); this.farmService.GetAll(this.userName)
+    //         .subscribe({
+    //           next: (farm) => { console.log(this.userName), this.farms = farm; console.log(this.farms); },
+    //           error: (response: any) => { console.log(response); }
+    //         })
+    //     },
+    //     error: (response: any) => { console.log(response); }
+    //   })
 
+    this.farmService.GetCurrentUserFarms()
+      .subscribe({
+        next: (response: any) => { this.farms = response; console.log(response) },
+        error: (response: any) => { console.log(response) }
+      });
   }
 }

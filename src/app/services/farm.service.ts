@@ -13,7 +13,7 @@ export class FarmService {
   constructor(private http: HttpClient) { }
 
   GetCurrentUser(): Observable<string> {
-    return this.http.get(this.baseApiUrl + '/Authenticate/CurrentUser', { responseType: 'text' });
+    return this.http.get(this.baseApiUrl + '/Authenticate/CurrentUserByName', { responseType: 'text' });
   }
   GetAll(username: string): Observable<Farm[]> {
     console.log('ADDA');
@@ -33,5 +33,8 @@ export class FarmService {
   Delete(farmId: number): Observable<Farm> {
     return this.http.delete<Farm>(this.baseApiUrl + '/Farm/' + farmId);
 
+  }
+  GetCurrentUserFarms(): Observable<Farm[]> {
+    return this.http.get<Farm[]>(this.baseApiUrl + '/Authenticate/CurrentUserFarms');
   }
 }

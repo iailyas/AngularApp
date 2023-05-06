@@ -56,7 +56,7 @@ const routes: Routes = [
     component: AddPetComponent
   },
   {
-    path: 'Pet/:id',
+    path: 'Farm/PetByFarmIdFarmId/:id/:id',
     component: EditPetComponent
   },
   {

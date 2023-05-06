@@ -71,7 +71,12 @@ export class RegistratonComponent implements OnInit {
     console.log('AAAAAAAAAAAA');
     this.registrationService.Add(this.registrationForm.getRawValue(), this.image)
       .subscribe({
-        next: (user) => { this.router.navigate(['AddUser']); console.log(user); },
+        next: (user) => { /*this.router.navigate(['AddUser']);*/ console.log(user); },
+        error: (response: any) => { console.log(response); }
+      });
+    this.registrationService.AddRegister(this.registrationForm.getRawValue())
+      .subscribe({
+        next: (response: any) => { /*this.router.navigate(['AddUser']);*/ console.log(response); },
         error: (response: any) => { console.log(response); }
       });
 

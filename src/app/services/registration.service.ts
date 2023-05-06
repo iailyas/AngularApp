@@ -27,15 +27,17 @@ export class RegistrationService {
     this.currentUser.password = user.password;
     this.currentUser.userName = user.userName;
     const fd = new FormData();
+
+    fd.append('first_Name', user.first_Name);
+    fd.append('last_Name', user.last_Name);
+    fd.append('role', 'user');
+    fd.append('userName', user.userName);
+    // fd.append('password', user.password);
+    fd.append('email', user.email);
     if (image) {
       fd.append('avatar', image);
     }
-    fd.append('first_Name', user.first_Name);
-    fd.append('last_Name', user.last_Name);
-    fd.append('userName', user.userName);
-    fd.append('password', user.password);
-    fd.append('email', user.email);
-    this.AddRegister(this.currentUser);
+    //   this.AddRegister(this.currentUser);
     return this.http.post<any>(this.baseApiUrl + '/User', fd);
   }
 }
