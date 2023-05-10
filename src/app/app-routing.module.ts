@@ -13,6 +13,7 @@ import { UploadfileComponent } from './components/uploadfile/uploadfile.componen
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { DeathComponent } from './components/death/death.component';
 import { GameComponent } from './components/game/game.component';
+import { NewprofileComponent } from './components/newprofile/newprofile.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'Profile',
     component: UsersListComponent
+  },
+  {
+    path: 'NewProfile',
+    component: NewprofileComponent
   },
   {
     path: 'Farm',
@@ -60,11 +65,11 @@ const routes: Routes = [
     component: EditPetComponent
   },
   {
-    path: 'Game',
+    path: 'Farm/PetByFarmIdFarmId/:id/Game/:id',
     component: GameComponent
   },
   {
-    path: 'Death',
+    path: 'Death/:id',
     component: DeathComponent
   }
 ];

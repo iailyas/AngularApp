@@ -1,6 +1,6 @@
 <div class="container my-5">
     <h1 class="mb-3">Pets</h1>
-    <table class="table" ng *ngIf="pets && pets.length>0">
+    <table class="table table-hover" ng *ngIf="pets && pets.length>0">
         <thead>
             <tr>
                 <th>id</th>
@@ -13,7 +13,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let pet of pets ">
+                <button type="button" class="btn btn-success" (click)="SetPetId(pet.type,pet.id)">Success</button>
                 <td>{{pet.id}}</td>
+                <!--[routerLink]="['Game/'+ pet.type]"  <td><a (click)="SetPetId(pet.type,pet.id)">Game</a><br>{{pet.id}}</td>        (click)="SetPetId(pet.type,pet.id)-->
+                <td><a [routerLink]="['Game/'+pet.id]">Game</a><br>{{pet.id}}</td> 
                 <td>{{pet.name}}</td>
                 <td>{{pet.type}}</td>
                 <td>{{pet.happiness_days_count}}</td>

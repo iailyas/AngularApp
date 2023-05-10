@@ -7,6 +7,8 @@
         </div>
         <div class="mb-3">
             <label for="Type" class="form-label">Type</label>
+            <button type="button" class="btn btn-danger" (click)="Primary()">Главный</button>
+            <button type="button" class="btn btn-secondary" (click)="Secondary()">Вторичный</button>
             <input type="text" class="form-control" id="type"  name="type" [(ngModel)]="addPetRequest.type">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

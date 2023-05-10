@@ -20,8 +20,8 @@ export class FarmService {
     console.log(username);
     return this.http.get<Farm[]>(this.baseApiUrl + '/Farm/CurrentUserFarms?name=' + username);
   }
-  Add(userId: number, addFarmRequest: Farm): Observable<Farm> {
-    return this.http.post<Farm>(this.baseApiUrl + '/AddFarmToUser?id=' + userId, addFarmRequest);
+  Add(addFarmRequest: Farm) {
+    return this.http.post(this.baseApiUrl + '/AddFarmCurrentUser', addFarmRequest);
   }
   GetById(farmId: number): Observable<Farm> {
     return this.http.get<Farm>(this.baseApiUrl + '/Farm/' + farmId);

@@ -23,6 +23,12 @@ export class AddPetComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  Primary() {
+    this.addPetRequest.type = '1';
+  }
+  Secondary() {
+    this.addPetRequest.type = '2';
+  }
   AddPet() {
     this.route.paramMap.subscribe({
       next: (params) => {

@@ -25,8 +25,8 @@ export class AddFarmComponent implements OnInit {
   ngOnInit(): void {
   }
   AddFarm() {
-    this.farmService.Add(this.userId = 1, this.addFarmRequest)
-      .subscribe({ next: (farm) => { this.router.navigate(['Farm']); console.log(farm); } });
+    this.farmService.Add(this.addFarmRequest)
+      .subscribe({ next: (farm) => { this.router.navigate(['Farm']); } });
 
   }
 

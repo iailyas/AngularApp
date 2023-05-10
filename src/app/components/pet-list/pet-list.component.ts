@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Pet } from 'src/app/models/pet.model';
 import { PetsService } from 'src/app/services/pets.service';
 import { AddPetComponent } from '../add-pet/add-pet.component';
+import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
   selector: 'app-pet-list',
@@ -12,7 +13,8 @@ import { AddPetComponent } from '../add-pet/add-pet.component';
 export class PetListComponent implements OnInit {
   pets: Pet[] = [];
   id: number | undefined;
-  constructor(private route: ActivatedRoute, private petsService: PetsService, private router: Router) { }
+  responce: any;
+  constructor(private route: ActivatedRoute, private petsService: PetsService, private router: Router, private scoreService: ScoreService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -28,6 +30,29 @@ export class PetListComponent implements OnInit {
     //     next: (pet) => { this.pets = pet; console.log(this.pets); },
     //     error: (response: any) => { console.log(response); }
     //   })
+
+  }
+  SetPetId(type: string, id: string) {
+    this.scoreService.GetScore(Number(id)).subscribe({
+      next: (response: any) => {
+        this.responce = response; console.log(response); this.scoreService.Score = response; 
+        if (this.scoreService.Score == 0) {
+          if (Number(id)) {
+            this.scoreService.PetId = Number(id);
+            console.log(this.scoreService.PetId);
+          //  this.scoreService.Score = 0;
+            this.router.navigate(['/Farm/PetByFarmIdFarmId/' + Number(id) + '/Game/' + Number(type)]);
+          }
+        }
+        else {
+          this.router.navigate(['Death/' + Number(id)]); 
+        }
+      },
+      error: (response: any) => { console.log(response); }
+    });
+
+
+
 
   }
   AddPet() {
