@@ -1,13 +1,13 @@
 <div class="container my-5">
-    <h1 class="mb-3">Farms</h1>
+    <h1 class="mb-3"><button type="button ml-1" class="btn btn-success" routerLink="/AddFarmToUser">Add Farm</button></h1>
     <table class="table table-hover" ng *ngIf="farms && farms.length>0">
         <thead>
             <tr>
                 <th>id</th>
+                <th></th>
                 <th>Name</th>
-                <th>dead_pets_count</th>
-                <th>alive_pets_count</th>
-                <th>average_feeding_period</th>
+                <th>Alive</th>
+                <th>Dead</th>
                 <th>average_thirst_quenching</th>
                 <th>average_pet_happiness</th>
                 <th>average_pets_age</th>
@@ -16,18 +16,20 @@
         </thead>
         <tbody>
             <tr *ngFor="let farm of farms ">
+    
                 <td>{{farm.id}}</td>
-                <td><a [routerLink]="['PetByFarmIdFarmId/'+farm.id]">Pets</a><br>{{farm.name}}</td>
+                <td><a [routerLink]="['PetByFarmIdFarmId/'+farm.id]"><img src="\assets\2.jpg" width="100" height="100"/></a><br></td>
+                <td>{{farm.name}}</td>
                 <td>{{farm.dead_pets_count}}</td>
                 <td>{{farm.alive_pets_count}}</td>
                 <td>{{farm.average_feeding_period}}</td>
                 <td>{{farm.average_thirst_quenching}}</td>
                 <td>{{farm.average_pet_happiness}}</td>
                 <td>{{farm.average_pets_age}}</td>
-                <td><a [routerLink]="[farm.id]">Edit</a></td>
+                <td><a [routerLink]="[farm.id]"><button type="button" class="btn btn-dark">Edit</button></a></td>
             </tr>
         </tbody>
     </table>
     <p *ngIf="!farms || farms.length<=0">No Farms found</p>
 </div>
-<button type="button ml-1" class="btn btn-primary btn-lg" routerLink="/AddFarmToUser">Add Farm</button>
+

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { Subscription, interval } from 'rxjs';
 import { Tamagochi } from '../../models/Tamagochi.model';
-import { Look } from 'src/app/models/Look';
+import { Look } from 'F:/prog/myrepository/Angular/AngularApp/src/app/models/Look.model';
 
 @Component({
   selector: 'app-game',

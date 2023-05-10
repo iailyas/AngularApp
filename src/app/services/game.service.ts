@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Look } from '../models/Look';
+import { Look } from 'F:/prog/myrepository/Angular/AngularApp/src/app/models/Look.model';
 import { Tamagochi } from '../models/Tamagochi.model';
 import { ScoreService } from './score.service';
 
