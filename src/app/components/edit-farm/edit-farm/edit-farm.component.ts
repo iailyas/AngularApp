@@ -33,7 +33,7 @@ export class EditFarmComponent implements OnInit {
   }
   updateFarm() {
     this.farmService.Update(Number(this.farmDetail.id), this.farmDetail).subscribe({
-      next: (response: any) => this.router.navigate(['Farm']),
+      next: (response: any) => { this.router.navigate(['Farm']); console.log(response); },
       error: (response: any) => { console.log(response); }
     });
     console.log(this.farmDetail);

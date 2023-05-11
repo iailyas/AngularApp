@@ -33,7 +33,7 @@ export class EditPetComponent implements OnInit {
 
   updatePet() {
     this.petsService.Update(Number(this.petDetail.id), this.petDetail).subscribe({
-      next: (params) => this.router.navigate(['/Farm/PetByFarmIdFarmId/' + this.petDetail.id]),
+      next: (params: any) => { this.router.navigate(['/Farm/PetByFarmIdFarmId/' + this.petDetail.id]); console.log(params); },
       error: (response: any) => { console.log(response); }
     });
     console.log(this.petDetail);

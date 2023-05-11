@@ -13,6 +13,9 @@ export class PetsService {
   GetByFarmId(farmId: number): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.baseApiUrl + '/PetByFarmId?FarmId=' + farmId);
   }
+  UpdateStatsByFarmId(farmId: number) {
+    return this.http.patch(this.baseApiUrl + '/FarmStatsUpdate?farmID=' + farmId, farmId);
+  }
   GetAll(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.baseApiUrl + '/Pet');
   }

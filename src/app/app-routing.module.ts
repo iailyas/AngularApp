@@ -14,6 +14,8 @@ import { UsersListComponent } from './components/users/users-list/users-list.com
 import { DeathComponent } from './components/death/death.component';
 import { GameComponent } from './components/game/game.component';
 import { NewprofileComponent } from './components/newprofile/newprofile.component';
+import { GraphComponent } from './graph/graph.component';
+
 
 const routes: Routes = [
   {
@@ -71,6 +73,10 @@ const routes: Routes = [
   {
     path: 'Death/:id',
     component: DeathComponent
+  },
+  {
+    path: 'Chart',
+    component: GraphComponent
   }
 ];
 

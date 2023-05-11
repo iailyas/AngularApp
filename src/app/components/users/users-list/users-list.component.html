@@ -1,4 +1,4 @@
-<div class="container my-5">
+<!--<div class="container my-5">
     <h1 class="mb-3">User</h1>
     <table class="table" ng *ngIf="Users && Users.length>0">
         <thead>
@@ -19,7 +19,7 @@
                 <td>{{User.role}}</td>
                 <td>{{User.email}}</td>
                 <!-- <td>{{User.avatar}}</td> -->                
-                <img src="\assets\images\{{User.avatar}}" width="100" height="100"/>
+              <!--  <img src="\assets\images\{{User.avatar}}" width="100" height="100"/>
             </tr>
             
         </tbody>
@@ -28,3 +28,70 @@
 </div>
 
 <button type="button" class="btn btn-primary btn-lg" routerLink="Farm/AddFarmToUser">Add User</button>
+-->
+
+<div class="container">
+    <div class="container-fluid g-0 p-2">
+
+    <div class="row g-1">
+
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <img src="\assets\images\{{User.avatar}}" alt="Profile Image" class="profile">
+        </div>
+
+        <div class="col ps-2">
+
+            <div class="row g-0">
+
+                <div class="col-md-10 text-center">
+                    
+                </div>
+
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-success"
+                            >Edit</button>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-2 mt-3">
+
+                <div class="col-md">
+
+                    <table class="table table-hover mx-auto">
+                        <thead class="text-center fs-5 fst-italic text-secondary">
+                            <tr>
+                                <td colspan="3">Personal Details</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>First_Name</td>
+                                <td>{{User.first_Name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Last_Name</td>
+                                <td>{{User.last_Name}} </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{User.email}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+               
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>

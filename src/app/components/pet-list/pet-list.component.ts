@@ -20,7 +20,16 @@ export class PetListComponent implements OnInit {
     this.route.paramMap.subscribe({
       next: (params) => {
         const id = params.get('id');
-        if (Number(id)) { this.petsService.GetByFarmId(Number(id)).subscribe({ next: (response) => { this.pets = response } }) };
+        if (Number(id)) {
+          this.petsService.GetByFarmId(Number(id)).subscribe({
+            next: (response) => {
+              this.pets = response; this.petsService.UpdateStatsByFarmId(Number(id)).subscribe({
+                next: (response: any) => { console.log(response) },
+                error: (response: any) => { console.log(response) }
+              });
+            }
+          })
+        };
 
       }
     });
@@ -35,17 +44,17 @@ export class PetListComponent implements OnInit {
   SetPetId(type: string, id: string) {
     this.scoreService.GetScore(Number(id)).subscribe({
       next: (response: any) => {
-        this.responce = response; console.log(response); this.scoreService.Score = response; 
+        this.responce = response; console.log(response); this.scoreService.Score = response;
         if (this.scoreService.Score == 0) {
           if (Number(id)) {
             this.scoreService.PetId = Number(id);
             console.log(this.scoreService.PetId);
-          //  this.scoreService.Score = 0;
+            //  this.scoreService.Score = 0;
             this.router.navigate(['/Farm/PetByFarmIdFarmId/' + Number(id) + '/Game/' + Number(type)]);
           }
         }
         else {
-          this.router.navigate(['Death/' + Number(id)]); 
+          this.router.navigate(['Death/' + Number(id)]);
         }
       },
       error: (response: any) => { console.log(response); }

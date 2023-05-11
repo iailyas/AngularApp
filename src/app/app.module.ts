@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,9 +20,16 @@ import { GameComponent } from './components/game/game.component';
 import { DeathComponent } from './components/death/death.component';
 import { HeadersInterceptor } from './headers.interceptor';
 
+
+import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+import { GraphComponent } from './graph/graph.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    CanvasJSChart,
     FarmsListComponent,
     AddFarmComponent,
     UsersListComponent,
@@ -35,7 +42,8 @@ import { HeadersInterceptor } from './headers.interceptor';
     EditPetComponent,
     ProfileComponent,
     GameComponent,
-    DeathComponent
+    DeathComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +60,6 @@ import { HeadersInterceptor } from './headers.interceptor';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
