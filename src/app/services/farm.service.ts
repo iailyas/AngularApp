@@ -18,7 +18,7 @@ export class FarmService {
   GetAll(username: string): Observable<Farm[]> {
     console.log('ADDA');
     console.log(username);
-    return this.http.get<Farm[]>(this.baseApiUrl + '/Farm/CurrentUserFarms?name=' + username);
+    return this.http.get<Farm[]>(this.baseApiUrl + '/Authenticate/CurrentUserFarms' + username);
   }
   Add(addFarmRequest: Farm) {
     return this.http.post(this.baseApiUrl + '/AddFarmCurrentUser', addFarmRequest);

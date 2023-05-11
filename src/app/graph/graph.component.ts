@@ -17,10 +17,10 @@ export class GraphComponent {
     theme: "light",
     exportEnabled: false,
     title: {
-      text: "Developer Work Week"
+      text: "User Stats"
     },
     subtitles: [{
-      text: "Median hours/week"
+      text: "Median pet's score/total score"
     }],
     data: [{
       type: "pie", //change type to column, line, area, doughnut, etc
@@ -31,7 +31,24 @@ export class GraphComponent {
   constructor(private router: Router, private graphService: GraphService, private formBuilder: FormBuilder) { }
   ngOnInit(): void {
     this.graphService.GetAll().subscribe({
-      next: (response: any) => { this.Points = response; console.log(this.Points); console.log(response) },
+      next: (response: any) => {
+        this.Points = response; this.chartOptions = {
+          animationEnabled: true,
+          theme: "light",
+          exportEnabled: false,
+          title: {
+            text: "User Stats"
+          },
+          subtitles: [{
+            text: "Median pet's score/total score"
+          }],
+          data: [{
+            type: "pie", //change type to column, line, area, doughnut, etc
+            indexLabel: "{name}: {y}%",
+            dataPoints: [] = this.Points
+          }]
+        }; console.log(this.Points); console.log(response)
+      },
       error: (response: any) => { console.log(response) }
     });
   }
