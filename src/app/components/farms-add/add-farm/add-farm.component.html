@@ -1,7 +1,7 @@
 <div class="container my-5">
     <h1 class="mb-3">Add new Farm</h1>
     <form #form="ngForm" (ngSubmit)="AddFarm()">
-        <div class="mb-3">
+        <div class="mb-3 w-25">
           <label for="Name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name"  name="name" [(ngModel)]="addFarmRequest.name">
         </div>
