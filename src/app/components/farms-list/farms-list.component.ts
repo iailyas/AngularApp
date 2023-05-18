@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Farm } from 'src/app/models/farm.model';
 import { FarmService } from 'src/app/services/farm.service';
+import { PetsService } from 'src/app/services/pets.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FarmService } from 'src/app/services/farm.service';
 export class FarmsListComponent implements OnInit {
   farms: Farm[] = [];
   userName: string = '';
-  constructor(private farmService: FarmService) { }
+  constructor(private farmService: FarmService, private petsService: PetsService) { }
   ngOnInit(): void {
     // this.farmService.GetCurrentUser()
     // this.farmService.GetCurrentUser()
@@ -32,5 +33,9 @@ export class FarmsListComponent implements OnInit {
         next: (response: any) => { this.farms = response; console.log(response) },
         error: (response: any) => { console.log(response) }
       });
+  }
+  setCurrentFarmId(id: string) {
+    if (Number(id))
+      this.petsService.currentFarmId = Number(id);
   }
 }

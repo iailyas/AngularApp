@@ -9,6 +9,7 @@ import { Pet } from '../models/pet.model';
 })
 export class PetsService {
   baseApiUrl: string = environment.baseApiUrl;
+  currentFarmId: number | undefined;
   constructor(private http: HttpClient) { }
   GetByFarmId(farmId: number): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.baseApiUrl + '/PetByFarmId?FarmId=' + farmId);

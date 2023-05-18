@@ -38,7 +38,7 @@ export class AddPetComponent implements OnInit {
 
           .subscribe({
 
-            next: (response: any) => { this.petsService.Add(Number(id), this.addPetRequest); this.router.navigate(['Farm']); },
+            next: (response: any) => { this.petsService.Add(Number(id), this.addPetRequest); this.router.navigate(['/Farm/PetByFarmIdFarmId/' + Number(id)]); },
             error: (response: any) => { console.log(response); }
 
           });

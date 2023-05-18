@@ -64,11 +64,13 @@ export class PetListComponent implements OnInit {
 
 
   }
+
   AddPet() {
     this.route.paramMap.subscribe({
       next: (params) => {
         const id = params.get('id');
         if (Number(id)) { this.router.navigate(['AddPetToFarm/' + Number(id)]); };
+
 
       }
     });
