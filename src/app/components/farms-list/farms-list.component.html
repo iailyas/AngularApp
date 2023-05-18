@@ -1,6 +1,6 @@
 <div class="container my-5">
     <h1 ng *ngIf="farms && farms.length>0" class="mb-3"><button type="button ml-1" class="btn btn-success" routerLink="/AddFarmToUser">Add Farm</button></h1>
-    <table class="table table-hover" ng *ngIf="farms && farms.length>0">
+    <table class="table table-striped table-hover table-borderless table-sm " ng *ngIf="farms && farms.length>0">
         <thead>
             <tr>
                <!-- <th>id</th>-->
@@ -10,7 +10,7 @@
                 <th>Dead</th>
       <!--            <th>average_thirst_quenching</th>--> 
         <!--         <th>average_pet_happiness</th>-->  
-                <th>average_pets_age</th>
+                <th>Average Age</th>
                 <th> </th>
             </tr>
         </thead>
@@ -19,13 +19,24 @@
     
                <!-- <td>{{farm.id}}</td>-->
                 <td><a [routerLink]="['PetByFarmIdFarmId/'+farm.id]" (click)="setCurrentFarmId(farm.id)"><img src="\assets\2.jpg" width="100" height="100"/></a><br></td>
-                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;">{{farm.name}}</td>
-                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;">{{farm.alive_pets_count}}</td>
-                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;">{{farm.dead_pets_count}}</td>
+                <td  style="font-family: 'Arial', sans-serif; font-size: 20px;">{{farm.name}} </td>
+                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;">
+                    <img  *ngIf="farm.alive_pets_count==0" src="\assets\red.png" width="50" height="50"> 
+                    <img  *ngIf="farm.alive_pets_count>=1" src="\assets\green.png" width="50" height="50">
+                 </td>
+                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;"> 
+                    <img  *ngIf="farm.dead_pets_count>4" src="\assets\red.png" width="50" height="50"> 
+                    <img  *ngIf="farm.dead_pets_count>=1 && farm.dead_pets_count<=4" src="\assets\yellow.png" width="50" height="50">
+                    <img  *ngIf="farm.dead_pets_count==0" src="\assets\green.png" width="50" height="50">
+                </td>
              <!--      <td>{{farm.average_feeding_period}}</td>-->
              <!--      <td>{{farm.average_thirst_quenching}}</td>-->
            <!--    <td>{{farm.average_pet_happiness}}</td>--> 
-                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;">{{farm.average_pets_age}}</td>
+                <td  style="font-family: 'Arial', sans-serif; font-size: 40px;">
+                    <img  *ngIf="farm.average_pets_age<8" src="\assets\red.png" width="50" height="50"> 
+                    <img  *ngIf="farm.average_pets_age>=8 && farm.average_pets_age<=12" src="\assets\yellow.png" width="50" height="50">
+                    <img  *ngIf="farm.average_pets_age>12" src="\assets\green.png" width="50" height="50">
+                </td>
                 <td><a [routerLink]="[farm.id]"><button type="button" class="btn btn-dark">Edit</button></a></td>
             </tr>
         </tbody>

@@ -1,6 +1,6 @@
 <div class="container my-5">
     <button *ngIf="pets && pets.length>0" type="button ml-1" class="btn btn-success" (click)="AddPet()">Add Pet</button>
-    <table class="table table-hover" *ngIf="pets && pets.length>0">
+    <table class="table table-striped table-hover table-borderless table-sm " *ngIf="pets && pets.length>0">
         <thead>
             <tr>
                 <th></th>
@@ -20,7 +20,7 @@
                 <td><a (click)="SetPetId(pet.type,pet.id)"><img *ngIf="pet.happiness_days_count!=0" src="\assets\4.jpg" width="100" height="100"/> <img *ngIf="pet.happiness_days_count==0" src="\assets\3.jpg" width="100" height="100"/></a><br></td>
                 <!--[routerLink]="['Game/'+ pet.type]"  <td><a (click)="SetPetId(pet.type,pet.id)">Game</a><br>{{pet.id}}</td>        (click)="SetPetId(pet.type,pet.id)-->
                 <!-- <td><a [routerLink]="['Game/'+pet.id]">Game</a><br>{{pet.id}}</td> -->
-                <td style="font-family: 'Arial', sans-serif; font-size: 20px;">{{pet.name}}</td>
+                <td  style="font-family: 'Arial', sans-serif; font-size: 20px;">{{pet.name}}</td>
 
              
                 <td *ngIf="pet.type=='1'" style="font-family: 'Arial', sans-serif; font-size: 40px;">(◕‿◕)</td>

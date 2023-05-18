@@ -29,7 +29,7 @@ export class HeadersInterceptor implements HttpInterceptor {
           if (err.status !== 401) {
             return;
           }
-          this.router.navigate(['AddUser']);
+          this.router.navigate(['']);
         }
       }));
   }
